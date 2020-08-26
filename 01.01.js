@@ -10,4 +10,24 @@
 // 0 <= len(s) <= 100
 // 如果你不使用额外的数据结构，会很加分
 
-// 实现过程
+// 实现过程1
+// 使用对象
+function checkStrUnique(str = '') {
+    let obj = {};
+    let strArr = str.split('');
+    let length = strArr.length;
+    for(let i = 0; i < length; i++) {
+        let item = strArr[i];
+        if (obj[item]) {
+            return false
+        } else {
+            obj[item] = 1;
+        }
+    }
+    return true;
+}
+
+// 使用正则表达式
+function checkStrUnique2(str = '') {
+    return !/(.).?\1/.test(str)
+}
